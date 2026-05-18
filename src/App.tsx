@@ -11,19 +11,21 @@ const navItems = [
 
 const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Напитки']
 
+const fallbackDishImage = 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85'
+
 const dishes = [
   ['Плов Чайханский', 'Классический узбекский плов с бараниной, морковью и нутом, приготовленный в казане.', '38 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Хит', 'Хиты'],
-  ['Плов праздничный', 'Большая порция плова для компании с мясом, чесноком, зирой и нутом.', '68 000 сум', 'https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85', 'Плов', 'Пловы'],
+  ['Плов праздничный', 'Большая порция плова для компании с мясом, чесноком, зирой и нутом.', '68 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Плов', 'Пловы'],
   ['Шашлык из баранины', 'Сочный шашлык из молодой баранины, маринованный в восточных специях.', '42 000 сум', 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85', 'Популярное', 'Шашлыки'],
-  ['Шашлык из курицы', 'Нежное куриное филе на углях с лавашом, луком и зеленью.', '34 000 сум', 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=85', 'На углях', 'Шашлыки'],
+  ['Шашлык из курицы', 'Нежное куриное филе на углях с лавашом, луком и зеленью.', '34 000 сум', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85', 'На углях', 'Шашлыки'],
   ['Манты с тыквой', 'Нежные манты на пару с начинкой из тыквы и лука, со сметаной и томатным соусом.', '28 000 сум', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'Традиция', 'Манты'],
-  ['Манты с мясом', 'Классические манты с рубленым мясом, луком и ароматным бульоном внутри.', '32 000 сум', 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=900&q=85', 'Домашние', 'Манты'],
+  ['Манты с мясом', 'Классические манты с рубленым мясом, луком и ароматным бульоном внутри.', '32 000 сум', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'Домашние', 'Манты'],
   ['Ачик-чучук', 'Традиционный узбекский салат из свежих помидоров, лука и душистого масла.', '18 000 сум', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85', 'Свежо', 'Салаты'],
   ['Салат с зеленью', 'Хрустящие овощи, зелень, лёгкая заправка и яркая подача к горячим блюдам.', '22 000 сум', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85', 'Лёгкий', 'Салаты'],
   ['Шурпа домашняя', 'Наваристый суп с мясом, овощами, зеленью и восточными специями.', '36 000 сум', 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=85', 'Суп', 'Супы'],
   ['Лагман домашний', 'Насыщенный бульон, лапша, овощи и пряная подача.', '35 000 сум', 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=85', 'Горячее', 'Супы'],
   ['Чайханский чай', 'Ароматный зелёный или чёрный чай в чайнике, подаётся с курагой и орехами.', '12 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Чай', 'Напитки'],
-  ['Айран охлаждённый', 'Освежающий кисломолочный напиток к плову, шашлыку и горячим блюдам.', '10 000 сум', 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85', 'Fresh', 'Напитки'],
+  ['Айран охлаждённый', 'Освежающий напиток к плову, шашлыку и горячим блюдам.', '10 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Fresh', 'Напитки'],
 ]
 
 const features = [
@@ -36,17 +38,23 @@ const features = [
 ]
 
 const gallery = [
-  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85',
   'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85',
-  'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85',
   'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85',
   'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85',
 ]
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeCategory, setActiveCategory] = useState('Хиты')
+  const [bookingDay, setBookingDay] = useState('Сегодня')
+  const [bookingTime, setBookingTime] = useState('19:00')
+  const [bookingGuests, setBookingGuests] = useState('4 гостя')
+  const [bookingType, setBookingType] = useState('Банкет')
   const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
 
   return (
@@ -152,7 +160,7 @@ function App() {
             {filteredDishes.map(([title, desc, price, image, badge]) => (
               <article className="dish-card premium-dish" key={title}>
                 <div className="dish-image">
-                  <img src={image} alt={title} />
+                  <img src={image} alt={title} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackDishImage }} />
                   <span>{badge}</span>
                 </div>
                 <div className="dish-body">
@@ -188,24 +196,40 @@ function App() {
         </div>
       </section>
 
-      <section id="booking" className="relative z-10 mx-auto max-w-7xl px-4 py-10 pb-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 rounded-[36px] border border-white/10 bg-[#fff4d6] p-5 text-[#211108] shadow-2xl shadow-black/25 sm:p-8 lg:grid-cols-[.9fr_1.1fr] lg:p-10">
+      <section id="booking" className="booking-section relative z-10">
+        <div className="booking-shell section-inner">
           <div>
-            <p className="text-xs font-black uppercase tracking-[.42em] text-orange-700">Бронь и заказ</p>
-            <h2 className="mt-3 text-4xl font-black sm:text-6xl">Столик, банкет или доставка — в один понятный шаг.</h2>
-            <p className="mt-5 leading-8 text-stone-700">Кнопки пока демо. В реальном проекте сюда подключается Telegram, WhatsApp, звонок, карта или CRM для заявок.</p>
+            <p className="section-kicker">Бронь и заказ</p>
+            <h2>Столик, банкет или доставка — в один понятный шаг.</h2>
+            <p>Выберите быстрые параметры заявки. В реальном проекте эти данные отправляются в Telegram, WhatsApp, CRM или администратору.</p>
+            <div className="booking-summary">Заявка: {bookingDay}, {bookingTime}, {bookingGuests}, {bookingType.toLowerCase()}</div>
           </div>
+
           <div className="booking-card">
             <div className="booking-fields">
               <label><span>Имя</span><input defaultValue="Анна" aria-label="Имя" /></label>
               <label><span>Телефон</span><input defaultValue="+7 ••• •••-••-••" aria-label="Телефон" /></label>
             </div>
-            <div className="booking-options">
-              <button type="button">Сегодня</button>
-              <button type="button">19:00</button>
-              <button type="button">4 гостя</button>
-              <button type="button">Банкет</button>
+
+            <div className="booking-choice-grid">
+              <div>
+                <span>День</span>
+                <div>{['Сегодня', 'Завтра', 'Выходные'].map((item) => <button className={bookingDay === item ? 'selected' : ''} onClick={() => setBookingDay(item)} type="button" key={item}>{item}</button>)}</div>
+              </div>
+              <div>
+                <span>Время</span>
+                <div>{['18:00', '19:00', '20:30'].map((item) => <button className={bookingTime === item ? 'selected' : ''} onClick={() => setBookingTime(item)} type="button" key={item}>{item}</button>)}</div>
+              </div>
+              <div>
+                <span>Гости</span>
+                <div>{['2 гостя', '4 гостя', '8+ гостей'].map((item) => <button className={bookingGuests === item ? 'selected' : ''} onClick={() => setBookingGuests(item)} type="button" key={item}>{item}</button>)}</div>
+              </div>
+              <div>
+                <span>Формат</span>
+                <div>{['Столик', 'Банкет', 'Доставка'].map((item) => <button className={bookingType === item ? 'selected' : ''} onClick={() => setBookingType(item)} type="button" key={item}>{item}</button>)}</div>
+              </div>
             </div>
+
             <a href="tel:+70000000000">Позвонить / оставить заявку</a>
           </div>
         </div>
@@ -231,17 +255,16 @@ function App() {
           <p className="section-subtitle">Забронируйте столик заранее или просто зайдите — мы рады каждому гостю.</p>
           <div className="contacts-grid">
             <div className="contact-cards">
-              <article><span>📍</span><b>Адрес</b><p>ул. Навои, 12, Ташкент</p><small>Мирзо-Улугбекский район</small></article>
-              <article><span>☎️</span><b>Телефон</b><p>+998 71 234 56 78</p><small>+998 90 123 45 67</small></article>
+              <article><span>📍</span><b>Адрес</b><p>Невский проспект, 28</p><small>Санкт-Петербург, демо-адрес</small></article>
+              <article><span>☎️</span><b>Телефон</b><p>+7 812 234 56 78</p><small>+7 900 123 45 67</small></article>
               <article><span>🕘</span><b>Часы работы</b><p>Ежедневно 10:00 — 23:00</p><small>Пятница–Суббота до 00:00</small></article>
-              <article><span>✈️</span><b>Telegram</b><p>@chaihana_tashkent</p><small>Быстрое бронирование</small></article>
+              <article><span>✈️</span><b>Telegram</b><p>@chaihana_spb</p><small>Быстрое бронирование</small></article>
               <a href="#booking" className="contact-btn primary">Забронировать стол</a>
               <a href="https://t.me/" className="contact-btn telegram">Написать в Telegram</a>
             </div>
-            <div className="map-mock">
-              <div className="map-controls"><button type="button">+</button><button type="button">−</button></div>
-              <div className="map-pin">Ч</div>
-              <div className="map-card"><b>ЧАЙХАНА</b><small>ул. Навои, 12</small></div>
+            <div className="yandex-map">
+              <iframe title="Яндекс карта: демо-адрес чайханы" src="https://yandex.ru/map-widget/v1/?ll=30.324192%2C59.935965&z=15&mode=search&text=%D0%9D%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2028%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <div className="map-float-card"><b>ЧАЙХАНА</b><small>Невский проспект, 28</small></div>
             </div>
           </div>
         </div>
