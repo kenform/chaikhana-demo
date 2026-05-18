@@ -2,11 +2,11 @@ import { useState } from 'react'
 import './App.css'
 
 const navItems = [
-  ['О нас', '#atmosphere'],
+  ['О нас', '#about'],
   ['Меню', '#menu'],
-  ['Преимущества', '#atmosphere'],
-  ['Галерея', '#menu'],
-  ['Контакты', '#booking'],
+  ['Преимущества', '#advantages'],
+  ['Галерея', '#gallery'],
+  ['Контакты', '#contacts'],
 ]
 
 const dishes = [
@@ -17,9 +17,21 @@ const dishes = [
 ]
 
 const features = [
-  ['Семейные ужины', 'Большие столы, спокойная посадка и блюда на компанию.', '👨‍👩‍👧‍👦'],
-  ['Банкеты и праздники', 'Дни рождения, встречи и тёплая восточная атмосфера.', '🎉'],
-  ['Доставка и самовывоз', 'Популярные блюда домой или в офис без лишних звонков.', '🚗'],
+  ['Натуральные продукты', 'Только свежие ингредиенты без усилителей вкуса. Поставки ежедневно с местных рынков.', '🌿'],
+  ['Опытные повара', 'Наши повара хранят секреты восточных рецептов, передаваемых из поколения в поколение.', '🏠'],
+  ['Аутентичная атмосфера', 'Интерьер в восточном стиле создаёт ощущение уюта и тепла.', '🧳'],
+  ['Для семьи и компании', 'Просторные залы и банкетные пространства для любого повода.', '👥'],
+  ['Живая музыка', 'По пятницам и выходным — восточная музыка и особая атмосфера вечера.', '🎶'],
+  ['Удобная парковка', 'Парковка рядом с рестораном и удобный вход для гостей.', '✅'],
+]
+
+const gallery = [
+  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85',
 ]
 
 function App() {
@@ -91,6 +103,29 @@ function App() {
         </aside>
       </section>
 
+
+      <section id="about" className="about-section relative z-10">
+        <div className="section-inner about-grid">
+          <div className="about-photo">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=85" alt="Интерьер чайханы" />
+            <div className="about-small-photo">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=85" alt="Чайная подача" />
+            </div>
+          </div>
+          <div className="about-content">
+            <p className="section-kicker">О нас</p>
+            <h2>Традиции гостеприимства <span>в каждом моменте</span></h2>
+            <p>Чайхана — это не просто ресторан. Это место, где время замедляется, а каждое блюдо приготовлено с любовью и уважением к вековым традициям восточной кухни.</p>
+            <p>Здесь вас ждёт ароматный плов, сочный шашлык, свежие салаты, домашняя выпечка и, конечно, бесчисленные сорта чая.</p>
+            <div className="about-stats">
+              <b>10+<small>лет традиций</small></b>
+              <b>100%<small>натуральные продукты</small></b>
+              <b>5000+<small>довольных гостей</small></b>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="menu" className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Меню</p>
         <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Вкусы Востока</h2>
@@ -109,11 +144,11 @@ function App() {
         </div>
       </section>
 
-      <section id="atmosphere" className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+      <section id="advantages" className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
         <div>
-          <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Атмосфера</p>
-          <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Традиции гостеприимства в каждом моменте</h2>
-          <p className="mt-5 leading-8 text-amber-100/65">Чайхана — это не просто ресторан. Это место, где время замедляется, а каждое блюдо приготовлено с любовью и уважением к традициям восточной кухни.</p>
+          <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Почему мы</p>
+          <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Наши преимущества</h2>
+          <p className="mt-5 leading-8 text-amber-100/65">Мы создаём не просто ужин — мы создаём впечатление, которое хочется повторить.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
           {features.map(([title, desc, icon]) => (
@@ -142,6 +177,54 @@ function App() {
           </div>
         </div>
       </section>
+
+      <section id="gallery" className="gallery-section relative z-10">
+        <div className="section-inner">
+          <p className="section-kicker center">Галерея</p>
+          <h2 className="section-title center">Атмосфера <span>Чайханы</span></h2>
+          <p className="section-subtitle">Загляните в наш мир — вкусов, ароматов и тёплых моментов.</p>
+          <div className="gallery-grid">
+            {gallery.map((src, index) => (
+              <img src={src} alt={`Галерея чайханы ${index + 1}`} key={src} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="contacts-section relative z-10">
+        <div className="section-inner">
+          <p className="section-kicker center">Контакты</p>
+          <h2 className="section-title center">Приходите в гости</h2>
+          <p className="section-subtitle">Забронируйте столик заранее или просто зайдите — мы рады каждому гостю.</p>
+          <div className="contacts-grid">
+            <div className="contact-cards">
+              <article><span>📍</span><b>Адрес</b><p>ул. Навои, 12, Ташкент</p><small>Мирзо-Улугбекский район</small></article>
+              <article><span>☎️</span><b>Телефон</b><p>+998 71 234 56 78</p><small>+998 90 123 45 67</small></article>
+              <article><span>🕘</span><b>Часы работы</b><p>Ежедневно 10:00 — 23:00</p><small>Пятница–Суббота до 00:00</small></article>
+              <article><span>✈️</span><b>Telegram</b><p>@chaihana_tashkent</p><small>Быстрое бронирование</small></article>
+              <a href="#booking" className="contact-btn primary">Забронировать стол</a>
+              <a href="https://t.me/" className="contact-btn telegram">Написать в Telegram</a>
+            </div>
+            <div className="map-mock">
+              <div className="map-pin">Ч</div>
+              <div className="map-card"><b>ЧАЙХАНА</b><small>ул. Навои, 12</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer-section relative z-10">
+        <div className="section-inner footer-grid">
+          <div>
+            <div className="footer-logo"><span>Ч</span><b>ЧАЙХАНА</b></div>
+            <p>Ресторан восточной кухни с многолетними традициями гостеприимства в сердце города.</p>
+          </div>
+          <div><b>Навигация</b><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#advantages">Преимущества</a><a href="#gallery">Галерея</a></div>
+          <div><b>Меню</b><a>Пловы</a><a>Шашлыки</a><a>Супы</a><a>Салаты</a></div>
+          <div><b>Новости и акции</b><p>Подпишитесь и получайте первыми новости об акциях.</p><input placeholder="Ваш email" /><button>Подписаться</button></div>
+        </div>
+      </footer>
+
     </main>
   )
 }
