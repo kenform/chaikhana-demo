@@ -87,6 +87,13 @@ const promoCards = [
 
 const assistantScenarios = ['Семейный ужин', 'День рождения', 'Банкет', 'Доставка']
 
+const scenarioCards = [
+  ['Семейный ужин', 'Уютный стол, чай, плов и спокойная атмосфера для близких.', 'от 2 гостей', 'https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=85'],
+  ['День рождения', 'Поможем собрать меню, подготовить стол и красиво встретить гостей.', 'под ключ', 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=900&q=85'],
+  ['Банкет', 'Быстрая заявка с количеством гостей, временем и форматом события.', '8+ гостей', 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=85'],
+  ['Доставка', 'Популярные блюда домой или в офис: плов, шашлык, чайные сеты.', 'быстро', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85'],
+]
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeCategory, setActiveCategory] = useState('Хиты')
@@ -370,6 +377,28 @@ function App() {
         </div>
       </section>
 
+      <section id="scenarios" data-reveal className="scenario-section relative z-10">
+        <div className="section-inner">
+          <p className="section-kicker center">Сценарии</p>
+          <h2 className="section-title center">Для любого <span>повода</span></h2>
+          <p className="section-subtitle">Показываем гостю не просто меню, а готовые варианты: прийти семьёй, отметить праздник, собрать банкет или заказать доставку.</p>
+
+          <div className="scenario-grid">
+            {scenarioCards.map(([title, text, badge, image]) => (
+              <article data-reveal className="scenario-card" key={title}>
+                <img src={image} alt={title} />
+                <div>
+                  <span>{badge}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <a href="#booking">Собрать заявку</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="offers" data-reveal className="offers-section relative z-10">
         <div className="section-inner">
           <p className="section-kicker center">Акции дня</p>
@@ -457,6 +486,10 @@ function App() {
           <div><b>Навигация</b><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#advantages">Преимущества</a><a href="#gallery">Галерея</a></div>
           <div><b>Меню</b><a>Пловы</a><a>Шашлыки</a><a>Супы</a><a>Салаты</a></div>
           <div><b>Новости и акции</b><p>Подпишитесь и получайте первыми новости об акциях.</p><input placeholder="Ваш email" /><button>Подписаться</button></div>
+        </div>
+        <div className="section-inner footer-bottom">
+          <span>© 2026 Чайхана. Демо-сайт ресторана.</span>
+          <div><a href="#contacts">Контакты</a><a href="#booking">Бронь</a><a href="#menu">Меню</a></div>
         </div>
       </footer>
 
