@@ -53,6 +53,30 @@ const reviews = [
   ['Алина', 'Семейный ужин', 'Очень уютно, вкусный плов и внимательные официанты. Забронировали столик за минуту.', '5.0', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80'],
   ['Марат', 'День рождения', 'Отлично помогли с банкетом: быстро подобрали время, зал и меню на компанию.', '4.9', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80'],
   ['Екатерина', 'Доставка', 'Заказали шашлык и чайный сет домой. Всё приехало горячим и красиво упакованным.', '4.8', 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80'],
+  ['Руслан', 'Банкет', 'Отдельно спасибо за быструю бронь. Сразу понятно: время, гости, формат, без лишних звонков.', '5.0', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&q=80'],
+  ['София', 'Вечер с друзьями', 'Очень атмосферно: чай, музыка, интерьер и вкусный шашлык. Захотелось вернуться.', '4.9', 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80'],
+  ['Дамир', 'Доставка', 'Оформил заявку через сайт, быстро ответили в Telegram. Всё удобно и без хаоса.', '4.8', 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=160&q=80'],
+  ['Наталья', 'Семейный ужин', 'Понравилось, что можно заранее выбрать формат и время. Для семьи это прям удобно.', '5.0', 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=160&q=80'],
+  ['Илья', 'Плов', 'Плов отличный, порции большие. Сайт помог быстро посмотреть меню и забронировать.', '4.9', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80'],
+  ['Мадина', 'День рождения', 'Собрали стол на компанию, подсказали по меню и времени. Очень тёплый сервис.', '5.0', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80'],
+  ['Артём', 'Шашлыки', 'Шашлык сочный, подача красивая. Через сайт всё выглядит дорого и понятно.', '4.8', 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=160&q=80'],
+  ['Лола', 'Чайный вечер', 'Очень уютная атмосфера, чайная подача прям отдельное удовольствие.', '5.0', 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=160&q=80'],
+  ['Тимур', 'Банкет', 'Удобно, что заявка сразу с количеством гостей и временем. Администратор быстро понял задачу.', '4.9', 'https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=160&q=80'],
+  ['Карина', 'Салаты и чай', 'Красивое меню, приятные фото, легко выбрать блюдо. Ничего лишнего.', '4.8', 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=160&q=80'],
+  ['Алексей', 'Ужин после работы', 'Зашли спонтанно, но теперь буду бронировать заранее — так реально удобнее.', '4.9', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80'],
+  ['Зарина', 'Семейный праздник', 'Интерьер красивый, детям понравилось, взрослым тоже. Отличное место для семейных встреч.', '5.0', 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=160&q=80'],
+  ['Олег', 'Доставка в офис', 'Заказали на команду, всё приехало аккуратно. Telegram-заявка — очень удобно.', '4.8', 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=160&q=80'],
+  ['Диана', 'Романтический ужин', 'Тихо, тепло, красиво. Сайт сразу передаёт атмосферу места.', '5.0', 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=160&q=80'],
+  ['Сергей', 'Обед', 'Быстро посмотрел меню, выбрал плов, забронировал. Всё понятно даже с телефона.', '4.9', 'https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=160&q=80'],
+  ['Милана', 'День рождения', 'Очень понравилась идея заявки под событие. Для ресторана это прям сильная фишка.', '5.0', 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=160&q=80'],
+  ['Фарид', 'Встреча с друзьями', 'Меню, карта, бронь, мессенджеры — всё на месте. Сайт реально помогает выбрать и прийти.', '4.9', 'https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=160&q=80'],
+]
+
+const trustStats = [
+  ['4.9/5', 'рейтинг гостей', 'по отзывам и картам'],
+  ['12 минут', 'средний ответ', 'в Telegram / WhatsApp'],
+  ['20+', 'живых отзывов', 'для доверия на сайте'],
+  ['8+ гостей', 'банкет без хаоса', 'заявка уже с деталями'],
 ]
 
 const promoCards = [
@@ -181,6 +205,19 @@ function App() {
         </aside>
       </section>
 
+
+
+      <section data-reveal className="trust-strip-section relative z-10">
+        <div className="section-inner trust-strip">
+          {trustStats.map(([value, label, text]) => (
+            <article data-reveal key={label}>
+              <b>{value}</b>
+              <span>{label}</span>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section id="about" data-reveal className="about-section relative z-10">
         <div className="section-inner about-grid">
@@ -367,17 +404,23 @@ function App() {
         <div className="section-inner">
           <p className="section-kicker center">Отзывы</p>
           <h2 className="section-title center">Гости <span>возвращаются</span></h2>
-          <div className="reviews-grid">
-            {reviews.map(([name, label, text, rating, avatar]) => (
-              <article data-reveal key={name}>
-                <div className="review-head">
-                  <img src={avatar} alt={name} />
-                  <div><b>{name}</b><small>{label}</small></div>
-                  <span>★ {rating}</span>
-                </div>
-                <p>{text}</p>
-              </article>
-            ))}
+          <div className="reviews-slider-shell">
+            <div className="reviews-marquee">
+              {[...reviews, ...reviews].map(([name, label, text, rating, avatar], index) => (
+                <article className="review-slide" data-reveal key={`${name}-${index}`}>
+                  <div className="review-head">
+                    <img src={avatar} alt={name} />
+                    <div><b>{name}</b><small>{label}</small></div>
+                    <span>★ {rating}</span>
+                  </div>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="reviews-cta">
+            <span>20 отзывов в демо-ленте</span>
+            <a href="#booking">Хочу забронировать</a>
           </div>
         </div>
       </section>

@@ -3245,3 +3245,225 @@ header .menu-toggle i:nth-child(3) {
     width: 100%;
   }
 }
+
+
+/* reviews carousel and trust strip polish */
+.trust-strip-section {
+  padding: 0 0 92px;
+  background: #f8f2e9;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid rgba(49, 95, 29, .08);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(196, 90, 42, .08), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,253,248,.76));
+  box-shadow: 0 24px 70px rgba(60, 42, 25, .08);
+}
+
+.trust-strip article {
+  min-height: 124px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.62);
+  padding: 24px;
+  box-shadow: inset 0 0 0 1px rgba(49,95,29,.055);
+}
+
+.trust-strip b {
+  display: block;
+  color: #315f1d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.trust-strip span {
+  display: block;
+  margin-top: 10px;
+  color: #1f1f1f;
+  font-weight: 950;
+}
+
+.trust-strip p {
+  margin: 6px 0 0;
+  color: #7a7d83;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.reviews-section {
+  overflow: hidden;
+}
+
+.reviews-slider-shell {
+  position: relative;
+  width: min(100vw, 1480px);
+  margin: 58px auto 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.reviews-marquee {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: reviewsMarquee 68s linear infinite;
+  will-change: transform;
+}
+
+.reviews-slider-shell:hover .reviews-marquee {
+  animation-play-state: paused;
+}
+
+.review-slide {
+  width: 430px;
+  min-height: 220px;
+  flex: 0 0 auto;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(196,90,42,.06), transparent 24%),
+    #fffdf8;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(60,42,25,.08);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.review-slide:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 80px rgba(60,42,25,.14);
+}
+
+.review-slide p {
+  color: #626873;
+  line-height: 1.75;
+}
+
+@keyframes reviewsMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+.reviews-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 42px;
+}
+
+.reviews-cta span {
+  color: #c89f35;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.reviews-cta a {
+  display: grid;
+  min-height: 54px;
+  place-items: center;
+  border-radius: 999px;
+  background: #c45a2a;
+  color: #fff8ea;
+  padding: 0 26px;
+  font-weight: 950;
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(196, 90, 42, .22);
+}
+
+.chat-launcher {
+  width: auto !important;
+  min-width: 118px !important;
+  padding: 0 18px !important;
+  border-radius: 999px !important;
+}
+
+.chat-launcher::after {
+  content: ' помощник';
+  margin-left: 4px;
+}
+
+.footer-section a {
+  transition: color .2s ease, transform .2s ease, opacity .2s ease, background .2s ease;
+}
+
+.footer-section a:hover {
+  color: #fff8ea !important;
+  transform: translateX(4px);
+}
+
+.footer-socials.footer-socials-text a:hover {
+  transform: translateY(-2px) !important;
+}
+
+@media (max-width: 900px) {
+  .trust-strip-section {
+    padding: 24px 0 78px;
+  }
+
+  .trust-strip {
+    grid-template-columns: 1fr 1fr;
+    width: min(100% - 28px, 420px);
+    padding: 10px;
+    border-radius: 24px;
+  }
+
+  .trust-strip article {
+    min-height: 112px;
+    padding: 18px;
+  }
+
+  .trust-strip b {
+    font-size: 26px;
+  }
+
+  .trust-strip span {
+    font-size: 13px;
+  }
+
+  .trust-strip p {
+    font-size: 12px;
+  }
+
+  .review-slide {
+    width: min(82vw, 360px);
+    min-height: 250px;
+    padding: 24px;
+  }
+
+  .reviews-marquee {
+    animation-duration: 54s;
+  }
+
+  .reviews-cta {
+    padding: 0 20px;
+  }
+
+  .chat-launcher::after {
+    content: '';
+    margin: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .trust-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-slider-shell {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+  }
+}
