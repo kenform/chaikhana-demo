@@ -48,6 +48,21 @@ const gallery = [
   'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85',
 ]
 
+
+const reviews = [
+  ['Алина', 'Семейный ужин', 'Очень уютно, вкусный плов и внимательные официанты. Забронировали столик за минуту.', '5.0', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80'],
+  ['Марат', 'День рождения', 'Отлично помогли с банкетом: быстро подобрали время, зал и меню на компанию.', '4.9', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&q=80'],
+  ['Екатерина', 'Доставка', 'Заказали шашлык и чайный сет домой. Всё приехало горячим и красиво упакованным.', '4.8', 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80'],
+]
+
+const promoCards = [
+  ['Плов + чай', 'Сегодня к большому плову чайник зелёного чая в подарок.', 'до 18:00'],
+  ['Банкет от 8 гостей', 'Поможем собрать меню под компанию и заранее подготовить стол.', '-10%'],
+  ['Доставка рядом', 'Популярные блюда можно заказать домой или в офис.', 'быстро'],
+]
+
+const assistantScenarios = ['Семейный ужин', 'День рождения', 'Банкет', 'Доставка']
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeCategory, setActiveCategory] = useState('Хиты')
@@ -55,7 +70,12 @@ function App() {
   const [bookingTime, setBookingTime] = useState('19:00')
   const [bookingGuests, setBookingGuests] = useState('4 гостя')
   const [bookingType, setBookingType] = useState('Банкет')
+  const [assistantScenario, setAssistantScenario] = useState('Семейный ужин')
+  const [chatOpen, setChatOpen] = useState(false)
   const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
+  const bookingText = `Здравствуйте! Хочу забронировать: ${bookingDay}, ${bookingTime}, ${bookingGuests}, формат: ${bookingType}. Сценарий: ${assistantScenario}.`
+  const telegramUrl = `https://t.me/?text=${encodeURIComponent(bookingText)}`
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(bookingText)}`
 
   useEffect(() => {
     document.body.classList.toggle('menu-is-open', menuOpen)
@@ -217,7 +237,7 @@ function App() {
             ))}
           </div>
 
-          <a href="#booking" className="menu-download">Забронировать стол и уточнить меню</a>
+          <div className="menu-actions"><a href="#booking" className="menu-download">Забронировать стол</a><a href="/menu-chaikhana.pdf" download className="menu-pdf">Скачать меню PDF</a></div>
         </div>
       </section>
 
@@ -272,7 +292,59 @@ function App() {
               </div>
             </div>
 
-            <a href="tel:+70000000000">Позвонить / оставить заявку</a>
+            <div className="booking-actions"><a className="call" href="tel:+70000000000">Позвонить</a><a className="tg" href={telegramUrl} target="_blank" rel="noreferrer">Telegram</a><a className="wa" href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a></div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="smart-booking" data-reveal className="smart-booking-section relative z-10">
+        <div className="section-inner smart-booking-grid">
+          <div className="smart-copy">
+            <p className="section-kicker">AI-помощник</p>
+            <h2>Подберём формат заявки за пару кликов.</h2>
+            <p>Демо-помощник показывает, как сайт может не просто красиво выглядеть, а помогать администратору получать понятные заявки: время, гостей, формат и контакт.</p>
+
+            <div className="scenario-pills">
+              {assistantScenarios.map((scenario) => (
+                <button type="button" className={assistantScenario === scenario ? 'selected' : ''} onClick={() => setAssistantScenario(scenario)} key={scenario}>{scenario}</button>
+              ))}
+            </div>
+
+            <div className="assistant-result">
+              <span>Готовая заявка</span>
+              <p>{bookingText}</p>
+            </div>
+
+            <div className="assistant-actions">
+              <a href={telegramUrl} target="_blank" rel="noreferrer">Отправить в Telegram</a>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer">Отправить в WhatsApp</a>
+            </div>
+          </div>
+
+          <div className="assistant-phone">
+            <div className="assistant-phone-head"><span>AI booking</span><b>online</b></div>
+            <div className="assistant-chat">
+              <p className="bot">Здравствуйте! Подскажу, что лучше выбрать для сценария “{assistantScenario}”.</p>
+              <p className="user">{bookingGuests}, {bookingTime}, {bookingType.toLowerCase()}.</p>
+              <p className="bot">Отлично. Я подготовлю короткую заявку для администратора и предложу ближайшее удобное время.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="offers" data-reveal className="offers-section relative z-10">
+        <div className="section-inner">
+          <p className="section-kicker center">Акции дня</p>
+          <h2 className="section-title center">Повод зайти <span>сегодня</span></h2>
+          <div className="promo-grid">
+            {promoCards.map(([title, text, badge]) => (
+              <article data-reveal key={title}>
+                <span>{badge}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -285,6 +357,26 @@ function App() {
           <div className="gallery-grid">
             {gallery.map((src, index) => (
               <img data-reveal src={src} alt={`Галерея чайханы ${index + 1}`} key={src} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      <section id="reviews" data-reveal className="reviews-section relative z-10">
+        <div className="section-inner">
+          <p className="section-kicker center">Отзывы</p>
+          <h2 className="section-title center">Гости <span>возвращаются</span></h2>
+          <div className="reviews-grid">
+            {reviews.map(([name, label, text, rating, avatar]) => (
+              <article data-reveal key={name}>
+                <div className="review-head">
+                  <img src={avatar} alt={name} />
+                  <div><b>{name}</b><small>{label}</small></div>
+                  <span>★ {rating}</span>
+                </div>
+                <p>{text}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -324,6 +416,22 @@ function App() {
           <div><b>Новости и акции</b><p>Подпишитесь и получайте первыми новости об акциях.</p><input placeholder="Ваш email" /><button>Подписаться</button></div>
         </div>
       </footer>
+
+
+      <div className="mobile-bottom-cta">
+        <a href="#booking">Забронировать</a>
+        <button type="button" onClick={() => setChatOpen(true)}>AI</button>
+      </div>
+
+      <button className="chat-launcher" type="button" onClick={() => setChatOpen(true)}>AI</button>
+      <div className={`chat-panel ${chatOpen ? 'chat-panel-open' : ''}`}>
+        <button className="chat-close" type="button" onClick={() => setChatOpen(false)}>×</button>
+        <span>AI-помощник</span>
+        <h3>Подготовить заявку?</h3>
+        <p>Я соберу короткий текст для администратора: день, время, гости и формат.</p>
+        <div className="chat-mini-card">{bookingText}</div>
+        <a href={telegramUrl} target="_blank" rel="noreferrer">Отправить в Telegram</a>
+      </div>
 
     </main>
   )
