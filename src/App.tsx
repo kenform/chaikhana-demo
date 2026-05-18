@@ -500,7 +500,7 @@ function App() {
             </div>
           </div>
           <div className="reviews-cta">
-            <span>20 отзывов в демо-ленте</span>
+            <span>20 отзывов в ленте отзывов</span>
             <a href="#booking">Хочу забронировать</a>
           </div>
         </div>
@@ -513,7 +513,7 @@ function App() {
           <p className="section-subtitle">Забронируйте столик заранее или просто зайдите — мы рады каждому гостю.</p>
           <div className="contacts-grid">
             <div className="contact-cards">
-              <article><span>📍</span><b>Адрес</b><p>Невский проспект, 28</p><small>Санкт-Петербург, демо-адрес</small></article>
+              <article><span>📍</span><b>Адрес</b><p>Невский проспект, 28</p><small>Санкт-Петербург, центр города</small></article>
               <article><span>☎️</span><b>Телефон</b><p>+7 812 234 56 78</p><small>+7 900 123 45 67</small></article>
               <article><span>🕘</span><b>Часы работы</b><p>Ежедневно 10:00 — 23:00</p><small>Пятница–Суббота до 00:00</small></article>
               <article><span>✈️</span><b>Telegram</b><p>@chaihana_spb</p><small>Быстрое бронирование</small></article>
@@ -521,7 +521,7 @@ function App() {
               <a href="https://t.me/" className="contact-btn telegram">Написать в Telegram</a>
             </div>
             <div className="yandex-map">
-              <iframe title="Яндекс карта: демо-адрес чайханы" src="https://yandex.ru/map-widget/v1/?ll=30.324192%2C59.935965&z=15&mode=search&text=%D0%9D%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2028%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe title="Яндекс карта: центр города чайханы" src="https://yandex.ru/map-widget/v1/?ll=30.324192%2C59.935965&z=15&mode=search&text=%D0%9D%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2028%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               <div className="map-float-card"><b>ЧАЙХАНА</b><small>Невский проспект, 28</small></div>
             </div>
           </div>
@@ -540,7 +540,7 @@ function App() {
           <div><b>Новости и акции</b><p>Подпишитесь и получайте первыми новости об акциях.</p><input placeholder="Ваш email" /><button>Подписаться</button></div>
         </div>
         <div className="section-inner footer-bottom">
-          <span>© 2026 Чайхана. Демо-сайт ресторана.</span>
+          <span>© 2026 Чайхана. Ресторан восточной кухни в Санкт-Петербурге.</span>
           <div><a href="#contacts">Контакты</a><a href="#booking">Бронь</a><a href="#menu">Меню</a></div>
         </div>
       </footer>
