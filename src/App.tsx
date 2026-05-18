@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const navItems = [
@@ -57,6 +57,34 @@ function App() {
   const [bookingType, setBookingType] = useState('Банкет')
   const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
 
+  useEffect(() => {
+    document.body.classList.toggle('menu-is-open', menuOpen)
+
+    return () => {
+      document.body.classList.remove('menu-is-open')
+    }
+  }, [menuOpen])
+
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll('[data-reveal]')) as HTMLElement[]
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.14 }
+    )
+
+    elements.forEach((element) => observer.observe(element))
+
+    return () => observer.disconnect()
+  }, [activeCategory])
+
   return (
     <main className="min-h-screen overflow-hidden bg-[#180f0a] text-[#fff7e8]">
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(245,158,11,.24),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(190,88,39,.2),transparent_28%),linear-gradient(180deg,#211108_0%,#120b08_58%,#1d1008_100%)]" />
@@ -85,16 +113,30 @@ function App() {
         </div>
 
         <div className={`mobile-menu md:hidden ${menuOpen ? 'mobile-menu-open' : ''}`}>
-          <div className="mt-3 grid gap-2 rounded-2xl border border-white/10 bg-[#140c08] p-3">
-            {navItems.map(([label, href]) => (
-              <a onClick={() => setMenuOpen(false)} className="rounded-xl px-4 py-3 font-black text-amber-100/75 no-underline" href={href} key={href}>{label}</a>
-            ))}
-            <a onClick={() => setMenuOpen(false)} href="#booking" className="rounded-xl bg-amber-400 px-4 py-3 text-center font-black text-[#211108] no-underline">Забронировать стол</a>
+          <div className="mobile-drawer">
+            <div className="mobile-drawer-head">
+              <span>Навигация</span>
+              <small>чайхана · меню · бронь</small>
+            </div>
+
+            <nav className="mobile-nav-list">
+              {navItems.map(([label, href], index) => (
+                <a onClick={() => setMenuOpen(false)} href={href} key={href}>
+                  <em>{String(index + 1).padStart(2, '0')}</em>
+                  <span>{label}</span>
+                </a>
+              ))}
+            </nav>
+
+            <div className="mobile-drawer-bottom">
+              <a onClick={() => setMenuOpen(false)} href="#booking">Забронировать стол</a>
+              <p>Быстро выберите меню, посмотрите атмосферу и оставьте заявку.</p>
+            </div>
           </div>
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-16">
+      <section data-reveal className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-16">
         <div className="rounded-[36px] border border-white/10 bg-white/[.07] p-5 shadow-2xl shadow-black/25 backdrop-blur sm:p-8 lg:p-10">
           <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Ресторан восточной кухни</p>
           <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[.92] tracking-tight text-white sm:text-7xl lg:text-8xl">Чайхана — место вкуса и тепла</h1>
@@ -120,7 +162,7 @@ function App() {
       </section>
 
 
-      <section id="about" className="about-section relative z-10">
+      <section id="about" data-reveal className="about-section relative z-10">
         <div className="section-inner about-grid">
           <div className="about-photo">
             <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=85" alt="Интерьер чайханы" />
@@ -142,7 +184,7 @@ function App() {
         </div>
       </section>
 
-      <section id="menu" className="menu-section relative z-10">
+      <section id="menu" data-reveal className="menu-section relative z-10">
         <div className="section-inner">
           <p className="section-kicker center">Наше меню</p>
           <h2 className="section-title center">Вкусы <span>Востока</span></h2>
@@ -158,7 +200,7 @@ function App() {
 
           <div className="dish-grid">
             {filteredDishes.map(([title, desc, price, image, badge]) => (
-              <article className="dish-card premium-dish" key={title}>
+              <article data-reveal className="dish-card premium-dish" key={title}>
                 <div className="dish-image">
                   <img src={image} alt={title} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackDishImage }} />
                   <span>{badge}</span>
@@ -179,7 +221,7 @@ function App() {
         </div>
       </section>
 
-      <section id="advantages" className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+      <section id="advantages" data-reveal className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
         <div>
           <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Почему мы</p>
           <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Наши преимущества</h2>
@@ -187,7 +229,7 @@ function App() {
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
           {features.map(([title, desc, icon]) => (
-            <article className="rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-xl shadow-black/20" key={title}>
+            <article data-reveal className="rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-xl shadow-black/20" key={title}>
               <div className="text-5xl">{icon}</div>
               <h3 className="mt-5 text-xl font-black text-white">{title}</h3>
               <p className="mt-3 text-sm leading-7 text-amber-100/65">{desc}</p>
@@ -196,7 +238,7 @@ function App() {
         </div>
       </section>
 
-      <section id="booking" className="booking-section relative z-10">
+      <section id="booking" data-reveal className="booking-section relative z-10">
         <div className="booking-shell section-inner">
           <div>
             <p className="section-kicker">Бронь и заказ</p>
@@ -235,20 +277,20 @@ function App() {
         </div>
       </section>
 
-      <section id="gallery" className="gallery-section relative z-10">
+      <section id="gallery" data-reveal className="gallery-section relative z-10">
         <div className="section-inner">
           <p className="section-kicker center">Галерея</p>
           <h2 className="section-title center">Атмосфера <span>Чайханы</span></h2>
           <p className="section-subtitle">Загляните в наш мир — вкусов, ароматов и тёплых моментов.</p>
           <div className="gallery-grid">
             {gallery.map((src, index) => (
-              <img src={src} alt={`Галерея чайханы ${index + 1}`} key={src} />
+              <img data-reveal src={src} alt={`Галерея чайханы ${index + 1}`} key={src} />
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contacts" className="contacts-section relative z-10">
+      <section id="contacts" data-reveal className="contacts-section relative z-10">
         <div className="section-inner">
           <p className="section-kicker center">Контакты</p>
           <h2 className="section-title center">Приходите в гости</h2>
@@ -270,7 +312,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="footer-section relative z-10">
+      <footer data-reveal className="footer-section relative z-10">
         <div className="section-inner footer-grid">
           <div>
             <div className="footer-logo"><span>Ч</span><b>ЧАЙХАНА</b></div>
