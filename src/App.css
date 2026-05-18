@@ -4392,3 +4392,48 @@ input:focus-visible {
     width: min(100%, 340px);
   }
 }
+
+/* mobile fixed header final fix */
+@media (max-width: 900px) {
+  :root {
+    --chaikhana-mobile-header-h: 78px;
+  }
+
+  header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 3000 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 0 24px 24px !important;
+    background: rgba(255, 252, 245, .96) !important;
+    backdrop-filter: blur(18px) !important;
+    box-shadow: 0 10px 34px rgba(60, 42, 25, .12) !important;
+  }
+
+  header > div:first-child {
+    min-height: 66px !important;
+  }
+
+  main > section:first-of-type {
+    padding-top: 118px !important;
+  }
+
+  html {
+    scroll-padding-top: 96px !important;
+  }
+
+  header .mobile-menu {
+    position: fixed !important;
+    inset: var(--chaikhana-mobile-header-h) 0 0 0 !important;
+    width: 100vw !important;
+    height: calc(100dvh - var(--chaikhana-mobile-header-h)) !important;
+    max-height: none !important;
+  }
+
+  header .mobile-menu > .mobile-drawer {
+    min-height: 100% !important;
+  }
+}
