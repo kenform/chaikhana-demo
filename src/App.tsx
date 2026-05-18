@@ -11,8 +11,6 @@ const navItems = [
 
 const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Напитки']
 
-const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Напитки']
-
 const dishes = [
   ['Плов Чайханский', 'Классический узбекский плов с бараниной, морковью и нутом, приготовленный в казане.', '38 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Хит', 'Хиты'],
   ['Плов праздничный', 'Большая порция плова для компании с мясом, чесноком, зирой и нутом.', '68 000 сум', 'https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85', 'Плов', 'Пловы'],
@@ -48,8 +46,6 @@ const gallery = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activeCategory, setActiveCategory] = useState('Хиты')
-  const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
   const [activeCategory, setActiveCategory] = useState('Хиты')
   const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
 
