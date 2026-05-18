@@ -9,12 +9,23 @@ const navItems = [
   ['Контакты', '#contacts'],
 ]
 
+const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Напитки']
+
+const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Напитки']
+
 const dishes = [
-  ['Плов Чайханский', 'Классический узбекский плов с бараниной, морковью и нутом, приготовленный в казане.', '38 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Хит'],
-  ['Шашлык из баранины', 'Сочный шашлык из молодой баранины, маринованный в восточных специях.', '42 000 сум', 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85', 'Популярное'],
-  ['Манты с тыквой', 'Нежные манты на пару с начинкой из тыквы и лука, со сметаной и томатным соусом.', '28 000 сум', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'Традиция'],
-  ['Ачик-чучук', 'Традиционный узбекский салат из свежих помидоров, лука и душистого масла.', '18 000 сум', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85', 'Свежо'],
-  ['Чайханский чай', 'Ароматный зелёный или чёрный чай в чайнике, подаётся с курагой и орехами.', '12 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Чай'],
+  ['Плов Чайханский', 'Классический узбекский плов с бараниной, морковью и нутом, приготовленный в казане.', '38 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Хит', 'Хиты'],
+  ['Плов праздничный', 'Большая порция плова для компании с мясом, чесноком, зирой и нутом.', '68 000 сум', 'https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=85', 'Плов', 'Пловы'],
+  ['Шашлык из баранины', 'Сочный шашлык из молодой баранины, маринованный в восточных специях.', '42 000 сум', 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85', 'Популярное', 'Шашлыки'],
+  ['Шашлык из курицы', 'Нежное куриное филе на углях с лавашом, луком и зеленью.', '34 000 сум', 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=85', 'На углях', 'Шашлыки'],
+  ['Манты с тыквой', 'Нежные манты на пару с начинкой из тыквы и лука, со сметаной и томатным соусом.', '28 000 сум', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'Традиция', 'Манты'],
+  ['Манты с мясом', 'Классические манты с рубленым мясом, луком и ароматным бульоном внутри.', '32 000 сум', 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=900&q=85', 'Домашние', 'Манты'],
+  ['Ачик-чучук', 'Традиционный узбекский салат из свежих помидоров, лука и душистого масла.', '18 000 сум', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85', 'Свежо', 'Салаты'],
+  ['Салат с зеленью', 'Хрустящие овощи, зелень, лёгкая заправка и яркая подача к горячим блюдам.', '22 000 сум', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85', 'Лёгкий', 'Салаты'],
+  ['Шурпа домашняя', 'Наваристый суп с мясом, овощами, зеленью и восточными специями.', '36 000 сум', 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=85', 'Суп', 'Супы'],
+  ['Лагман домашний', 'Насыщенный бульон, лапша, овощи и пряная подача.', '35 000 сум', 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=85', 'Горячее', 'Супы'],
+  ['Чайханский чай', 'Ароматный зелёный или чёрный чай в чайнике, подаётся с курагой и орехами.', '12 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Чай', 'Напитки'],
+  ['Айран охлаждённый', 'Освежающий кисломолочный напиток к плову, шашлыку и горячим блюдам.', '10 000 сум', 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85', 'Fresh', 'Напитки'],
 ]
 
 const features = [
@@ -37,6 +48,10 @@ const gallery = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeCategory, setActiveCategory] = useState('Хиты')
+  const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
+  const [activeCategory, setActiveCategory] = useState('Хиты')
+  const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#180f0a] text-[#fff7e8]">
@@ -60,12 +75,8 @@ function App() {
 
           <a href="#booking" className="hidden rounded-2xl bg-amber-400 px-5 py-3 text-sm font-black text-[#211108] no-underline shadow-lg shadow-amber-950/30 sm:inline-flex">Забронировать стол</a>
 
-          <button type="button" onClick={() => setMenuOpen(!menuOpen)} className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white/8 md:hidden" aria-label="Открыть меню">
-            <span className="grid gap-1.5">
-              <i className={`burger-line ${menuOpen ? 'line-1-open' : ''}`} />
-              <i className={`burger-line ${menuOpen ? 'line-2-open' : ''}`} />
-              <i className={`burger-line ${menuOpen ? 'line-3-open' : ''}`} />
-            </span>
+          <button type="button" onClick={() => setMenuOpen(!menuOpen)} className={`menu-toggle md:hidden ${menuOpen ? 'menu-toggle-open' : ''}`} aria-label="Открыть меню">
+            <span><i /><i /><i /></span>
           </button>
         </div>
 
@@ -133,14 +144,16 @@ function App() {
           <h2 className="section-title center">Вкусы <span>Востока</span></h2>
           <p className="section-subtitle">Каждое блюдо — это история, приготовленная с уважением к традициям.</p>
 
-          <div className="menu-tabs">
-            {['Хиты', 'Пловы', 'Шашлыки', 'Салаты', 'Супы', 'Десерты', 'Напитки'].map((item, index) => (
-              <button className={index === 0 ? 'active' : ''} type="button" key={item}>{item}</button>
+          <div className="menu-tabs" role="tablist" aria-label="Фильтр меню">
+            {categories.map((item) => (
+              <button onClick={() => setActiveCategory(item)} className={activeCategory === item ? 'active' : ''} type="button" key={item}>{item}</button>
             ))}
           </div>
 
+          <div className="menu-filter-note">Показано: {activeCategory}. Выберите категорию, чтобы быстро найти нужное блюдо.</div>
+
           <div className="dish-grid">
-            {dishes.map(([title, desc, price, image, badge]) => (
+            {filteredDishes.map(([title, desc, price, image, badge]) => (
               <article className="dish-card premium-dish" key={title}>
                 <div className="dish-image">
                   <img src={image} alt={title} />
@@ -186,12 +199,18 @@ function App() {
             <h2 className="mt-3 text-4xl font-black sm:text-6xl">Столик, банкет или доставка — в один понятный шаг.</h2>
             <p className="mt-5 leading-8 text-stone-700">Кнопки пока демо. В реальном проекте сюда подключается Telegram, WhatsApp, звонок, карта или CRM для заявок.</p>
           </div>
-          <div className="grid gap-4 rounded-[28px] bg-white p-4 shadow-xl">
-            <div className="grid gap-3 sm:grid-cols-2">
-              <input className="rounded-2xl border border-orange-100 bg-orange-50 px-4 py-4 font-bold outline-none" defaultValue="Анна" aria-label="Имя" />
-              <input className="rounded-2xl border border-orange-100 bg-orange-50 px-4 py-4 font-bold outline-none" defaultValue="+7 ••• •••-••-••" aria-label="Телефон" />
+          <div className="booking-card">
+            <div className="booking-fields">
+              <label><span>Имя</span><input defaultValue="Анна" aria-label="Имя" /></label>
+              <label><span>Телефон</span><input defaultValue="+7 ••• •••-••-••" aria-label="Телефон" /></label>
             </div>
-            <a href="tel:+70000000000" className="rounded-2xl bg-[#211108] px-6 py-4 text-center font-black text-amber-200 no-underline">Позвонить / оставить заявку</a>
+            <div className="booking-options">
+              <button type="button">Сегодня</button>
+              <button type="button">19:00</button>
+              <button type="button">4 гостя</button>
+              <button type="button">Банкет</button>
+            </div>
+            <a href="tel:+70000000000">Позвонить / оставить заявку</a>
           </div>
         </div>
       </section>
@@ -224,6 +243,7 @@ function App() {
               <a href="https://t.me/" className="contact-btn telegram">Написать в Telegram</a>
             </div>
             <div className="map-mock">
+              <div className="map-controls"><button type="button">+</button><button type="button">−</button></div>
               <div className="map-pin">Ч</div>
               <div className="map-card"><b>ЧАЙХАНА</b><small>ул. Навои, 12</small></div>
             </div>
@@ -236,6 +256,7 @@ function App() {
           <div>
             <div className="footer-logo"><span>Ч</span><b>ЧАЙХАНА</b></div>
             <p>Ресторан восточной кухни с многолетними традициями гостеприимства в сердце города.</p>
+            <div className="footer-socials"><a>◎</a><a>↗</a><a>◉</a><a>▶</a></div>
           </div>
           <div><b>Навигация</b><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#advantages">Преимущества</a><a href="#gallery">Галерея</a></div>
           <div><b>Меню</b><a>Пловы</a><a>Шашлыки</a><a>Супы</a><a>Салаты</a></div>
