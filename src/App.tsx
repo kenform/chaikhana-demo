@@ -317,7 +317,7 @@ function App() {
           <div>
             <div className="footer-logo"><span>Ч</span><b>ЧАЙХАНА</b></div>
             <p>Ресторан восточной кухни с многолетними традициями гостеприимства в сердце города.</p>
-            <div className="footer-socials"><a>◎</a><a>↗</a><a>◉</a><a>▶</a></div>
+            <div className="footer-socials footer-socials-text"><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a><a href="https://t.me/" target="_blank" rel="noreferrer">Telegram</a><a href="#contacts">Карта</a></div>
           </div>
           <div><b>Навигация</b><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#advantages">Преимущества</a><a href="#gallery">Галерея</a></div>
           <div><b>Меню</b><a>Пловы</a><a>Шашлыки</a><a>Супы</a><a>Салаты</a></div>
