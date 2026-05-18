@@ -4080,3 +4080,98 @@ input:focus-visible {
     height: 54px !important;
   }
 }
+
+
+/* guest selling polish */
+.premium-dish .dish-body button {
+  border: 0;
+  border-radius: 999px;
+  background: #f7e8dd;
+  color: #c45a2a;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(196, 90, 42, .10);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease;
+}
+
+.premium-dish .dish-body button:hover {
+  transform: translateY(-3px);
+  background: #c45a2a;
+  color: #fff8ea;
+  box-shadow: 0 16px 34px rgba(196, 90, 42, .22);
+}
+
+.premium-dish .dish-body button:active {
+  transform: translateY(0) scale(.98);
+}
+
+.selected-dish-card {
+  margin: 18px 0 20px;
+  border: 1px solid rgba(49, 95, 29, .14);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(196, 90, 42, .08), transparent 30%),
+    #eef5e9;
+  padding: 18px 20px;
+  color: #315f1d;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+.selected-dish-card span {
+  display: block;
+  color: #c89f35;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.selected-dish-card b {
+  display: block;
+  margin-top: 8px;
+  color: #315f1d;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.selected-dish-card small {
+  display: block;
+  margin-top: 7px;
+  color: rgba(31,31,31,.56);
+  font-weight: 800;
+}
+
+.booking-summary {
+  max-width: 100%;
+  line-height: 1.55;
+}
+
+.smart-copy p {
+  max-width: 640px;
+}
+
+.assistant-result p {
+  line-height: 1.7;
+}
+
+.chat-mini-card {
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .selected-dish-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .selected-dish-card b {
+    font-size: 21px;
+  }
+
+  .premium-dish .dish-body button {
+    min-height: 46px;
+    padding-inline: 18px;
+  }
+}

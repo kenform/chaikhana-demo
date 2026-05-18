@@ -101,10 +101,11 @@ function App() {
   const [bookingTime, setBookingTime] = useState('19:00')
   const [bookingGuests, setBookingGuests] = useState('4 гостя')
   const [bookingType, setBookingType] = useState('Банкет')
+  const [selectedDish, setSelectedDish] = useState('Плов Чайханский')
   const [assistantScenario, setAssistantScenario] = useState('Семейный ужин')
   const [chatOpen, setChatOpen] = useState(false)
   const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
-  const bookingText = `Здравствуйте! Хочу забронировать: ${bookingDay}, ${bookingTime}, ${bookingGuests}, формат: ${bookingType}. Сценарий: ${assistantScenario}.`
+  const bookingText = `Здравствуйте! Хочу забронировать: ${bookingDay}, ${bookingTime}, ${bookingGuests}, формат: ${bookingType}. Блюдо: ${selectedDish}. Сценарий: ${assistantScenario}.`
   const telegramUrl = `https://t.me/?text=${encodeURIComponent(bookingText)}`
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(bookingText)}`
 
@@ -260,7 +261,7 @@ function App() {
             ))}
           </div>
 
-          <div className="menu-filter-note">Показано: {activeCategory}. Выберите категорию, чтобы быстро найти нужное блюдо.</div>
+          <div className="menu-filter-note">Показано: {activeCategory}. Нажмите “В бронь” на блюде — оно автоматически добавится в заявку.</div>
 
           <div className="dish-grid">
             {filteredDishes.map(([title, desc, price, image, badge]) => (
@@ -274,7 +275,15 @@ function App() {
                   <p>{desc}</p>
                   <div>
                     <b>{price}</b>
-                    <a href="#booking">В бронь</a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedDish(title)
+                        document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' })
+                      }}
+                    >
+                      В бронь
+                    </button>
                   </div>
                 </div>
               </article>
@@ -308,13 +317,19 @@ function App() {
             <p className="section-kicker">Бронь и заказ</p>
             <h2>Столик, банкет или доставка — в один понятный шаг.</h2>
             <p>Выберите быстрые параметры заявки. В реальном проекте эти данные отправляются в Telegram, WhatsApp, CRM или администратору.</p>
-            <div className="booking-summary">Заявка: {bookingDay}, {bookingTime}, {bookingGuests}, {bookingType.toLowerCase()}</div>
+            <div className="booking-summary">Заявка: {bookingDay}, {bookingTime}, {bookingGuests}, {bookingType.toLowerCase()} · {selectedDish}</div>
           </div>
 
           <div className="booking-card">
             <div className="booking-fields">
               <label><span>Имя</span><input defaultValue="Анна" aria-label="Имя" /></label>
               <label><span>Телефон</span><input defaultValue="+7 ••• •••-••-••" aria-label="Телефон" /></label>
+            </div>
+
+            <div className="selected-dish-card">
+              <span>Выбрано из меню</span>
+              <b>{selectedDish}</b>
+              <small>Блюдо попадёт в заявку для администратора.</small>
             </div>
 
             <div className="booking-choice-grid">
@@ -346,8 +361,8 @@ function App() {
         <div className="section-inner smart-booking-grid">
           <div className="smart-copy">
             <p className="section-kicker">AI-помощник</p>
-            <h2>Подберём формат заявки за пару кликов.</h2>
-            <p>Демо-помощник показывает, как сайт может не просто красиво выглядеть, а помогать администратору получать понятные заявки: время, гостей, формат и контакт.</p>
+            <h2>Поможем выбрать формат вечера за пару кликов.</h2>
+            <p>Выберите сценарий, время, гостей и блюдо — сайт соберёт аккуратную заявку, которую можно сразу отправить в Telegram или WhatsApp.</p>
 
             <div className="scenario-pills">
               {assistantScenarios.map((scenario) => (
@@ -371,7 +386,7 @@ function App() {
             <div className="assistant-chat">
               <p className="bot">Здравствуйте! Подскажу, что лучше выбрать для сценария “{assistantScenario}”.</p>
               <p className="user">{bookingGuests}, {bookingTime}, {bookingType.toLowerCase()}.</p>
-              <p className="bot">Отлично. Я подготовлю короткую заявку для администратора и предложу ближайшее удобное время.</p>
+              <p className="bot">Отлично. Соберу короткую заявку и подскажу удобный формат: столик, банкет или доставку.</p>
             </div>
           </div>
         </div>
