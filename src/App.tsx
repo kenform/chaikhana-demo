@@ -10,10 +10,11 @@ const navItems = [
 ]
 
 const dishes = [
-  ['Плов праздничный', 'Рис лазер, сочная говядина, морковь, нут и восточные специи.', '690 ₽', '🍛'],
-  ['Манты с мясом', 'Нежное тесто, рубленое мясо, лук и ароматный бульон внутри.', '520 ₽', '🥟'],
-  ['Шашлык на углях', 'Маринованное мясо, дымок, лаваш, лук и свежая зелень.', '760 ₽', '🍢'],
-  ['Лагман домашний', 'Насыщенный бульон, лапша, овощи и пряная подача.', '590 ₽', '🍜'],
+  ['Плов Чайханский', 'Классический узбекский плов с бараниной, морковью и нутом, приготовленный в казане.', '38 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Хит'],
+  ['Шашлык из баранины', 'Сочный шашлык из молодой баранины, маринованный в восточных специях.', '42 000 сум', 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85', 'Популярное'],
+  ['Манты с тыквой', 'Нежные манты на пару с начинкой из тыквы и лука, со сметаной и томатным соусом.', '28 000 сум', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'Традиция'],
+  ['Ачик-чучук', 'Традиционный узбекский салат из свежих помидоров, лука и душистого масла.', '18 000 сум', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85', 'Свежо'],
+  ['Чайханский чай', 'Ароматный зелёный или чёрный чай в чайнике, подаётся с курагой и орехами.', '12 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Чай'],
 ]
 
 const features = [
@@ -73,7 +74,7 @@ function App() {
             {navItems.map(([label, href]) => (
               <a onClick={() => setMenuOpen(false)} className="rounded-xl px-4 py-3 font-black text-amber-100/75 no-underline" href={href} key={href}>{label}</a>
             ))}
-            <a onClick={() => setMenuOpen(false)} href="#booking" className="rounded-xl bg-amber-400 px-4 py-3 text-center font-black text-[#211108] no-underline">Забронировать стол столик</a>
+            <a onClick={() => setMenuOpen(false)} href="#booking" className="rounded-xl bg-amber-400 px-4 py-3 text-center font-black text-[#211108] no-underline">Забронировать стол</a>
           </div>
         </div>
       </header>
@@ -84,21 +85,21 @@ function App() {
           <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[.92] tracking-tight text-white sm:text-7xl lg:text-8xl">Чайхана — место вкуса и тепла</h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-amber-100/72">Ароматный чай, блюда восточной кухни и уютная атмосфера для ваших лучших моментов.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#booking" className="rounded-2xl bg-amber-400 px-6 py-4 text-center font-black text-[#211108] no-underline">Забронировать стол столик</a>
+            <a href="#booking" className="rounded-2xl bg-amber-400 px-6 py-4 text-center font-black text-[#211108] no-underline">Забронировать стол</a>
             <a href="#menu" className="rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-center font-black text-amber-100 no-underline">Смотреть меню</a>
+          </div>
+          <div className="hero-badges">
+            <span>🌿 Свежие ингредиенты</span>
+            <span>📜 Традиционные рецепты</span>
+            <span>🏮 Уютная атмосфера</span>
           </div>
         </div>
 
-        <aside className="relative min-h-[520px] overflow-hidden rounded-[36px] border border-amber-200/15 bg-[#f7c56b] p-5 text-[#211108] shadow-2xl shadow-black/30 sm:p-7">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_24%,rgba(255,255,255,.62),transparent_24%),radial-gradient(circle_at_70%_72%,rgba(120,53,15,.24),transparent_30%)]" />
-          <div className="relative z-10 flex items-center justify-between">
-            <p className="text-xs font-black uppercase tracking-[.35em]">Фирменная подача</p>
-            <span className="rounded-full bg-[#211108] px-3 py-1 text-xs font-black text-amber-200">demo</span>
-          </div>
-          <div className="relative z-10 mt-12 grid place-items-center">
-            <div className="food-plate grid h-72 w-72 place-items-center rounded-full bg-[#fff4d6] shadow-2xl shadow-amber-950/30 sm:h-96 sm:w-96">
-              <div className="grid h-52 w-52 place-items-center rounded-full bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-100 text-7xl shadow-inner sm:h-72 sm:w-72 sm:text-8xl">🍛</div>
-            </div>
+        <aside className="hero-visual relative min-h-[520px] overflow-hidden rounded-[36px] border border-amber-200/15 bg-[#f7c56b] p-5 text-[#211108] shadow-2xl shadow-black/30 sm:p-7">
+          <div className="hero-stats-card">
+            <b>10+<small>лет традиций</small></b>
+            <b>5K+<small>довольных гостей</small></b>
+            <b>★ 4.9<small>рейтинг гостей</small></b>
           </div>
         </aside>
       </section>
@@ -126,21 +127,38 @@ function App() {
         </div>
       </section>
 
-      <section id="menu" className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Меню</p>
-        <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Вкусы Востока</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {dishes.map(([title, desc, price, icon]) => (
-            <article className="dish-card rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-xl shadow-black/20" key={title}>
-              <div className="grid h-36 place-items-center rounded-[24px] bg-gradient-to-br from-amber-200/90 to-orange-700/30 text-6xl">{icon}</div>
-              <h3 className="mt-5 text-2xl font-black text-white">{title}</h3>
-              <p className="mt-3 min-h-[84px] text-sm leading-7 text-amber-100/65">{desc}</p>
-              <div className="mt-4 flex items-center justify-between">
-                <b className="text-xl text-amber-300">{price}</b>
-                <a href="#booking" className="rounded-full bg-white/10 px-4 py-2 text-sm font-black text-amber-100 no-underline">В бронь</a>
-              </div>
-            </article>
-          ))}
+      <section id="menu" className="menu-section relative z-10">
+        <div className="section-inner">
+          <p className="section-kicker center">Наше меню</p>
+          <h2 className="section-title center">Вкусы <span>Востока</span></h2>
+          <p className="section-subtitle">Каждое блюдо — это история, приготовленная с уважением к традициям.</p>
+
+          <div className="menu-tabs">
+            {['Хиты', 'Пловы', 'Шашлыки', 'Салаты', 'Супы', 'Десерты', 'Напитки'].map((item, index) => (
+              <button className={index === 0 ? 'active' : ''} type="button" key={item}>{item}</button>
+            ))}
+          </div>
+
+          <div className="dish-grid">
+            {dishes.map(([title, desc, price, image, badge]) => (
+              <article className="dish-card premium-dish" key={title}>
+                <div className="dish-image">
+                  <img src={image} alt={title} />
+                  <span>{badge}</span>
+                </div>
+                <div className="dish-body">
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                  <div>
+                    <b>{price}</b>
+                    <a href="#booking">В бронь</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <a href="#booking" className="menu-download">Забронировать стол и уточнить меню</a>
         </div>
       </section>
 
