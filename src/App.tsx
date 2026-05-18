@@ -9,11 +9,13 @@ const navItems = [
   ['Контакты', '#contacts'],
 ]
 
-const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Напитки']
+type Dish = [string, string, string, string, string, string]
+
+const categories = ['Хиты', 'Пловы', 'Шашлыки', 'Манты', 'Салаты', 'Супы', 'Чайная карта', 'Доставка']
 
 const fallbackDishImage = 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85'
 
-const dishes = [
+const dishes: Dish[] = [
   ['Плов Чайханский', 'Классический узбекский плов с бараниной, морковью и нутом, приготовленный в казане.', '38 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Хит', 'Хиты'],
   ['Плов праздничный', 'Большая порция плова для компании с мясом, чесноком, зирой и нутом.', '68 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Плов', 'Пловы'],
   ['Шашлык из баранины', 'Сочный шашлык из молодой баранины, маринованный в восточных специях.', '42 000 сум', 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=85', 'Популярное', 'Шашлыки'],
@@ -26,6 +28,14 @@ const dishes = [
   ['Лагман домашний', 'Насыщенный бульон, лапша, овощи и пряная подача.', '35 000 сум', 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=85', 'Горячее', 'Супы'],
   ['Чайханский чай', 'Ароматный зелёный или чёрный чай в чайнике, подаётся с курагой и орехами.', '12 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Чай', 'Напитки'],
   ['Айран охлаждённый', 'Освежающий напиток к плову, шашлыку и горячим блюдам.', '10 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Fresh', 'Напитки'],
+  ['Банкетный сет', 'Плов, шашлык, салаты, лепёшки и чай для большой компании.', 'от 180 000 сум', 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=900&q=85', 'Компания', 'Хиты'],
+  ['Плов на компанию', 'Большой казан плова для семейного ужина, офиса или праздника.', 'от 120 000 сум', 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85', 'Большой', 'Пловы'],
+  ['Люля-кебаб', 'Рубленое мясо с пряностями, приготовленное на мангале.', '39 000 сум', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85', 'Мангал', 'Шашлыки'],
+  ['Самса тандырная', 'Хрустящая самса с сочной начинкой и золотистой корочкой.', '18 000 сум', 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85', 'Тандыр', 'Манты'],
+  ['Чай с чабрецом', 'Согревающий восточный чай с травами и мягким ароматом.', '14 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Травы', 'Чайная карта'],
+  ['Фруктовый чай', 'Чай с фруктами, ягодами и лёгкой сладостью.', '16 000 сум', 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=85', 'Фрукты', 'Чайная карта'],
+  ['Восточные сладости', 'Сладкий сет к чаю: орехи, сухофрукты и десерты.', '24 000 сум', 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=85', 'К чаю', 'Чайная карта'],
+  ['Шашлык-сет доставка', 'Набор шашлыков, лаваш, лук, соусы и зелень.', 'от 150 000 сум', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85', 'Доставка', 'Доставка']
 ]
 
 const features = [
@@ -104,7 +114,8 @@ function App() {
   const [selectedDish, setSelectedDish] = useState('Плов Чайханский')
   const [assistantScenario, setAssistantScenario] = useState('Семейный ужин')
   const [chatOpen, setChatOpen] = useState(false)
-  const filteredDishes = activeCategory === 'Хиты' ? dishes.slice(0, 5) : dishes.filter((dish) => dish[5] === activeCategory)
+  const filteredDishes: Dish[] = activeCategory === 'Хиты' ? dishes.filter((dish) => dish[5] === 'Хиты').slice(0, 6) : dishes.filter((dish) => dish[5] === activeCategory)
+  const menuHighlights: Dish[] = dishes.filter((dish) => ['Плов Чайханский', 'Шашлык из баранины', 'Манты с тыквой', 'Чайханский чай'].includes(dish[0])).slice(0, 4)
   const bookingText = `Здравствуйте! Хочу забронировать: ${bookingDay}, ${bookingTime}, ${bookingGuests}, формат: ${bookingType}. Блюдо: ${selectedDish}. Сценарий: ${assistantScenario}.`
   const telegramUrl = `https://t.me/?text=${encodeURIComponent(bookingText)}`
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(bookingText)}`
@@ -230,9 +241,9 @@ function App() {
       <section id="about" data-reveal className="about-section relative z-10">
         <div className="section-inner about-grid">
           <div className="about-photo">
-            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=85" alt="Интерьер чайханы" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1100&q=85" alt="Интерьер чайханы" />
             <div className="about-small-photo">
-              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=85" alt="Чайная подача" />
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=85" alt="Чайная подача" />
             </div>
           </div>
           <div className="about-content">
@@ -255,19 +266,45 @@ function App() {
           <h2 className="section-title center">Вкусы <span>Востока</span></h2>
           <p className="section-subtitle">Каждое блюдо — это история, приготовленная с уважением к традициям.</p>
 
+          
+          <div className="menu-highlight-panel">
+            <div>
+              <p className="section-kicker">Лучшее в меню</p>
+              <h3>Хиты, которые чаще всего бронируют гости</h3>
+            </div>
+            <div className="menu-highlight-grid">
+              {menuHighlights.map(([title, , price, image, badge]) => (
+                <button
+                  type="button"
+                  className="menu-highlight-card"
+                  key={title}
+                  onClick={() => {
+                    setSelectedDish(title)
+                    document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                >
+                  <img loading="lazy" decoding="async" src={image} alt={title} />
+                  <span>{badge}</span>
+                  <b>{title}</b>
+                  <small>{price}</small>
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="menu-tabs" role="tablist" aria-label="Фильтр меню">
             {categories.map((item) => (
               <button onClick={() => setActiveCategory(item)} className={activeCategory === item ? 'active' : ''} type="button" key={item}>{item}</button>
             ))}
           </div>
 
-          <div className="menu-filter-note">Показано: {activeCategory}. Нажмите “В бронь” на блюде — оно автоматически добавится в заявку.</div>
+          <div className="menu-filter-note">Показано: {activeCategory}. Нажмите “В бронь” — блюдо автоматически добавится в заявку.</div>
 
           <div className="dish-grid">
             {filteredDishes.map(([title, desc, price, image, badge]) => (
               <article data-reveal className="dish-card premium-dish" key={title}>
                 <div className="dish-image">
-                  <img src={image} alt={title} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackDishImage }} />
+                  <img loading="lazy" decoding="async" src={image} alt={title} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackDishImage }} />
                   <span>{badge}</span>
                 </div>
                 <div className="dish-body">
@@ -401,7 +438,7 @@ function App() {
           <div className="scenario-grid">
             {scenarioCards.map(([title, text, badge, image]) => (
               <article data-reveal className="scenario-card" key={title}>
-                <img src={image} alt={title} />
+                <img loading="lazy" decoding="async" src={image} alt={title} />
                 <div>
                   <span>{badge}</span>
                   <h3>{title}</h3>
@@ -453,7 +490,7 @@ function App() {
               {[...reviews, ...reviews].map(([name, label, text, rating, avatar], index) => (
                 <article className="review-slide" data-reveal key={`${name}-${index}`}>
                   <div className="review-head">
-                    <img src={avatar} alt={name} />
+                    <img loading="lazy" decoding="async" src={avatar} alt={name} />
                     <div><b>{name}</b><small>{label}</small></div>
                     <span>★ {rating}</span>
                   </div>

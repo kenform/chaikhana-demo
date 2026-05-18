@@ -4175,3 +4175,220 @@ input:focus-visible {
     padding-inline: 18px;
   }
 }
+
+
+/* safe final polish */
+.menu-highlight-panel {
+  width: min(100%, 1080px);
+  margin: 48px auto 32px;
+  border: 1px solid rgba(49, 95, 29, .1);
+  border-radius: 34px;
+  background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,252,245,.62));
+  padding: 24px;
+  box-shadow: 0 24px 80px rgba(60,42,25,.09);
+}
+
+.menu-highlight-panel > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.menu-highlight-panel h3 {
+  max-width: 640px;
+  margin: 8px 0 0;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1;
+}
+
+.menu-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.menu-highlight-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  border: 0;
+  border-radius: 26px;
+  background: #1c0d07;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 16px 42px rgba(60,42,25,.11);
+  transition: transform .24s ease, box-shadow .24s ease;
+}
+
+.menu-highlight-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 28px 74px rgba(60,42,25,.18);
+}
+
+.menu-highlight-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s ease, filter .35s ease;
+}
+
+.menu-highlight-card:hover img {
+  transform: scale(1.07);
+  filter: saturate(1.08) contrast(1.03);
+}
+
+.menu-highlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28,13,7,.08), rgba(28,13,7,.82));
+}
+
+.menu-highlight-card span,
+.menu-highlight-card b,
+.menu-highlight-card small {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-highlight-card span {
+  display: inline-flex;
+  margin: 16px;
+  border-radius: 999px;
+  background: #c45a2a;
+  color: #fff8ea;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.menu-highlight-card b {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 46px;
+  display: block;
+  color: #fff8ea;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 24px;
+  line-height: 1.05;
+}
+
+.menu-highlight-card small {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  color: #f7d38d;
+  font-weight: 950;
+}
+
+.booking-summary {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  max-width: 560px !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  line-height: 1.35 !important;
+}
+
+.booking-summary strong,
+.booking-summary b,
+.booking-summary span {
+  white-space: normal !important;
+}
+
+.menu-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.menu-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  border: 2px solid #315f1d;
+  border-radius: 14px;
+  color: #315f1d;
+  padding: 0 30px;
+  font-weight: 950;
+  text-decoration: none;
+  transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.menu-pdf:hover {
+  transform: translateY(-3px);
+  background: rgba(49, 95, 29, .08);
+  box-shadow: 0 14px 30px rgba(49, 95, 29, .12);
+}
+
+@media (max-width: 1100px) {
+  .menu-highlight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-highlight-panel {
+    width: min(100% - 28px, 430px);
+    margin-top: 34px;
+    padding: 16px;
+    border-radius: 28px;
+  }
+
+  .menu-highlight-panel > div:first-child {
+    display: block;
+  }
+
+  .menu-highlight-panel h3 {
+    font-size: 30px;
+  }
+
+  .menu-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-highlight-card {
+    min-height: 170px;
+    border-radius: 22px;
+  }
+
+  .menu-highlight-card b {
+    font-size: 22px;
+  }
+
+  .menu-tabs {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    padding: 8px !important;
+    scrollbar-width: none;
+  }
+
+  .menu-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-tabs button {
+    flex: 0 0 auto;
+    min-height: 46px;
+  }
+
+  .booking-summary {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 14px 16px !important;
+  }
+
+  .menu-actions a {
+    width: min(100%, 340px);
+  }
+}
