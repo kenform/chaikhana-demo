@@ -2,9 +2,11 @@ import { useState } from 'react'
 import './App.css'
 
 const navItems = [
+  ['О нас', '#atmosphere'],
   ['Меню', '#menu'],
-  ['Атмосфера', '#atmosphere'],
-  ['Бронь', '#booking'],
+  ['Преимущества', '#atmosphere'],
+  ['Галерея', '#menu'],
+  ['Контакты', '#booking'],
 ]
 
 const dishes = [
@@ -30,10 +32,10 @@ function App() {
       <header className="sticky top-3 z-50 mx-auto mt-3 w-[calc(100%-24px)] max-w-7xl rounded-[28px] border border-white/10 bg-[#24140c]/82 p-3 shadow-2xl shadow-black/25 backdrop-blur-xl">
         <div className="flex items-center justify-between gap-3">
           <a href="#" className="flex min-w-0 items-center gap-3 no-underline">
-            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-400 text-xl font-black text-[#211108]">Z</span>
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-400 text-xl font-black text-[#211108]">Ч</span>
             <span className="min-w-0">
-              <b className="block truncate tracking-[.26em] text-white">ZAKHULI</b>
-              <small className="font-bold text-amber-100/70">чайхана · плов · уют</small>
+              <b className="block truncate tracking-[.26em] text-white">ЧАЙХАНА</b>
+              <small className="font-bold text-amber-100/70">ресторан восточной кухни</small>
             </span>
           </a>
 
@@ -43,7 +45,7 @@ function App() {
             ))}
           </nav>
 
-          <a href="#booking" className="hidden rounded-2xl bg-amber-400 px-5 py-3 text-sm font-black text-[#211108] no-underline shadow-lg shadow-amber-950/30 sm:inline-flex">Забронировать</a>
+          <a href="#booking" className="hidden rounded-2xl bg-amber-400 px-5 py-3 text-sm font-black text-[#211108] no-underline shadow-lg shadow-amber-950/30 sm:inline-flex">Забронировать стол</a>
 
           <button type="button" onClick={() => setMenuOpen(!menuOpen)} className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white/8 md:hidden" aria-label="Открыть меню">
             <span className="grid gap-1.5">
@@ -59,19 +61,19 @@ function App() {
             {navItems.map(([label, href]) => (
               <a onClick={() => setMenuOpen(false)} className="rounded-xl px-4 py-3 font-black text-amber-100/75 no-underline" href={href} key={href}>{label}</a>
             ))}
-            <a onClick={() => setMenuOpen(false)} href="#booking" className="rounded-xl bg-amber-400 px-4 py-3 text-center font-black text-[#211108] no-underline">Забронировать столик</a>
+            <a onClick={() => setMenuOpen(false)} href="#booking" className="rounded-xl bg-amber-400 px-4 py-3 text-center font-black text-[#211108] no-underline">Забронировать стол столик</a>
           </div>
         </div>
       </header>
 
       <section className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8 lg:py-16">
         <div className="rounded-[36px] border border-white/10 bg-white/[.07] p-5 shadow-2xl shadow-black/25 backdrop-blur sm:p-8 lg:p-10">
-          <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Восточная кухня · тёплая атмосфера</p>
-          <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[.92] tracking-tight text-white sm:text-7xl lg:text-8xl">Чайхана для вкусных вечеров, семейных ужинов и горячего плова.</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-amber-100/72">Демо-сайт для чайханы: меню, популярные блюда, бронь столика, доставка, банкеты и понятный путь клиента до заказа.</p>
+          <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Ресторан восточной кухни</p>
+          <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[.92] tracking-tight text-white sm:text-7xl lg:text-8xl">Чайхана — место вкуса и тепла</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-amber-100/72">Ароматный чай, блюда восточной кухни и уютная атмосфера для ваших лучших моментов.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#booking" className="rounded-2xl bg-amber-400 px-6 py-4 text-center font-black text-[#211108] no-underline">Забронировать столик</a>
-            <a href="#menu" className="rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-center font-black text-amber-100 no-underline">Посмотреть меню</a>
+            <a href="#booking" className="rounded-2xl bg-amber-400 px-6 py-4 text-center font-black text-[#211108] no-underline">Забронировать стол столик</a>
+            <a href="#menu" className="rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-center font-black text-amber-100 no-underline">Смотреть меню</a>
           </div>
         </div>
 
@@ -91,7 +93,7 @@ function App() {
 
       <section id="menu" className="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Меню</p>
-        <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Блюда, ради которых возвращаются.</h2>
+        <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Вкусы Востока</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {dishes.map(([title, desc, price, icon]) => (
             <article className="dish-card rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-xl shadow-black/20" key={title}>
@@ -110,8 +112,8 @@ function App() {
       <section id="atmosphere" className="relative z-10 mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
         <div>
           <p className="text-xs font-black uppercase tracking-[.45em] text-amber-300">Атмосфера</p>
-          <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Тёплое место для семьи, друзей и праздников.</h2>
-          <p className="mt-5 leading-8 text-amber-100/65">Сайт должен продавать не только еду, но и ощущение: где уютно сидеть, удобно заказать и легко забронировать.</p>
+          <h2 className="mt-3 text-4xl font-black text-white sm:text-6xl">Традиции гостеприимства в каждом моменте</h2>
+          <p className="mt-5 leading-8 text-amber-100/65">Чайхана — это не просто ресторан. Это место, где время замедляется, а каждое блюдо приготовлено с любовью и уважением к традициям восточной кухни.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
           {features.map(([title, desc, icon]) => (
